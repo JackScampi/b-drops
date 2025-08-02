@@ -28,9 +28,8 @@ const Index = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link to="/shop" className="btn-neon-primary text-lg px-8 py-4 flex items-center space-x-3 group">
+              <Link to="/shop" className="btn-neon-primary text-lg px-8 py-4 flex items-center justify-center">
                 <span>Explore Drops</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
               
               <button className="btn-neon-secondary text-lg px-8 py-4 flex items-center space-x-3">
