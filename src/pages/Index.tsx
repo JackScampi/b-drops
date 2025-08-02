@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Shield, Download, Twitter, Send } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import bempoloCyber from "@/assets/bempolo-cyber.jpg";
+import bempoloWizard from "@/assets/bempolo-wizard.jpg";
 const Index = () => {
   return <div className="min-h-screen bg-background cyber-grid">
       <Navigation />
@@ -95,10 +96,17 @@ const Index = () => {
               Meet Bempolo
             </h2>
             
+            <div className="mb-8">
+              <img src={bempoloWizard} alt="Bempolo Wizard" className="w-48 h-48 mx-auto rounded-full border-4 border-secondary glow-secondary mb-8" />
+            </div>
+
             <div className="card-glow p-8 mb-8">
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">Once upon a time in the gardens of the blockchain, there lived the smallest token with the biggest dreams.</p>
-              
-              
+              <p className="text-xl text-muted-foreground leading-relaxed mb-4">
+                Once upon a time in the gardens of the blockchain,
+              </p>
+              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
+                there lived the smallest token with the biggest dreams.
+              </p>
             </div>
 
             <Link to="/shop" className="btn-neon-accent text-lg px-8 py-4 inline-flex items-center space-x-3">
