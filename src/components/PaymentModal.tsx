@@ -2,6 +2,7 @@ import { useState } from "react";
 import { X, Wallet, Mail, CreditCard, Loader2, PlayCircle, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { MetaMaskSimulation } from "./MetaMaskSimulation";
 
 interface Product {
   id: number;
@@ -22,6 +23,7 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
   const [email, setEmail] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [isDemoMode, setIsDemoMode] = useState(false);
+  const [showMetaMaskSim, setShowMetaMaskSim] = useState(false);
   const navigate = useNavigate();
 
   // Convert BEMP price to USDT (example rate: 1 BEMP = 0.001 USDT)
@@ -29,19 +31,13 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
   const targetWallet = "0xB0aD6c79E8e232FE64b9C8fF77B5D00e2F76E1C3";
 
   const handleDemoPayment = async () => {
-    setIsProcessing(true);
-    
-    try {
-      // Simulate payment processing
-      await new Promise(resolve => setTimeout(resolve, 2500));
-      
-      toast.success("Demo payment successful! Please provide your email.");
-      setStep("email");
-    } catch (error) {
-      toast.error("Demo payment failed. Please try again.");
-    } finally {
-      setIsProcessing(false);
-    }
+    setShowMetaMaskSim(true);
+  };
+
+  const handleMetaMaskSimComplete = () => {
+    setShowMetaMaskSim(false);
+    toast.success("Demo payment successful! Please provide your email.");
+    setStep("email");
   };
 
   const handlePayment = async () => {
@@ -356,6 +352,14 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
           </div>
         )}
       </div>
+
+      {/* MetaMask Simulation */}
+      <MetaMaskSimulation
+        isOpen={showMetaMaskSim}
+        onClose={() => setShowMetaMaskSim(false)}
+        onComplete={handleMetaMaskSimComplete}
+        product={product}
+      />
     </div>
   );
 };
