@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Zap, Shield, Download, Twitter, Instagram, Send } from "lucide-react";
+import { ArrowRight, Zap, Shield, Download, Twitter, Send } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import bempoloCyber from "@/assets/bempolo-cyber.jpg";
 const Index = () => {
@@ -128,9 +128,6 @@ const Index = () => {
                   </svg>
                 </a>
                 
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors duration-300">
-                  <Instagram className="w-6 h-6" />
-                </a>
                 
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors duration-300">
                   <Twitter className="w-6 h-6" />
