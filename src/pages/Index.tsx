@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Shield, Download, Twitter, Instagram, Send } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import bempoloCyber from "@/assets/bempolo-cyber.jpg";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background cyber-grid">
+  return <div className="min-h-screen bg-background cyber-grid">
       <Navigation />
       
       {/* Hero Section */}
@@ -25,18 +23,11 @@ const Index = () => {
             </div>
 
             <div className="mb-12">
-              <img
-                src={bempoloCyber}
-                alt="Bempolo Cyber Gnome"
-                className="w-64 h-64 mx-auto rounded-full border-4 border-primary glow-primary"
-              />
+              <img src={bempoloCyber} alt="Bempolo Cyber Gnome" className="w-64 h-64 mx-auto rounded-full border-4 border-primary glow-primary" />
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link
-                to="/shop"
-                className="btn-neon-primary text-lg px-8 py-4 flex items-center space-x-3 group"
-              >
+              <Link to="/shop" className="btn-neon-primary text-lg px-8 py-4 flex items-center space-x-3 group">
                 <span>Explore Drops</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
@@ -107,22 +98,12 @@ const Index = () => {
             </h2>
             
             <div className="card-glow p-8 mb-8">
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Once upon a time in the digital gardens of the blockchain, there lived a small but mighty gnome named Bempolo. 
-                He's the smallest token with the biggest dreams, creating exclusive digital art that transcends the boundaries 
-                between memes and reality.
-              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">Once upon a time in the digital gardens of the blockchain, there lived the smallest token with the biggest dreams.</p>
               
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Each drop is a unique creation by Andrea Bempensante, powered by the magic of BEMP tokens but paid for with 
-                real USDT on Polygon. No NFTs, no complicated ownership - just pure digital art for your collection.
-              </p>
+              
             </div>
 
-            <Link
-              to="/shop"
-              className="btn-neon-accent text-lg px-8 py-4 inline-flex items-center space-x-3"
-            >
+            <Link to="/shop" className="btn-neon-accent text-lg px-8 py-4 inline-flex items-center space-x-3">
               <span>Start Collecting</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
@@ -143,41 +124,21 @@ const Index = () => {
               </div>
 
               <div className="flex items-center space-x-6">
-                <a
-                  href="https://polygonscan.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                >
+                <a href="https://polygonscan.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
                   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" />
                   </svg>
                 </a>
                 
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-secondary transition-colors duration-300"
-                >
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors duration-300">
                   <Instagram className="w-6 h-6" />
                 </a>
                 
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-accent transition-colors duration-300"
-                >
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors duration-300">
                   <Twitter className="w-6 h-6" />
                 </a>
                 
-                <a
-                  href="https://t.me"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-blue transition-colors duration-300"
-                >
+                <a href="https://t.me" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-blue transition-colors duration-300">
                   <Send className="w-6 h-6" />
                 </a>
               </div>
@@ -189,8 +150,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
