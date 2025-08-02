@@ -2,41 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* BEMPOLO Design System - Meme Crypto Vaporwave Aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark Meme Theme */
+    --background: 240 10% 8%;
+    --foreground: 280 100% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 15% 12%;
+    --card-foreground: 280 100% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 15% 10%;
+    --popover-foreground: 280 100% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Neon Purple Primary */
+    --primary: 280 100% 70%;
+    --primary-foreground: 240 10% 8%;
+    --primary-glow: 280 100% 85%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Cyan Secondary */
+    --secondary: 190 100% 60%;
+    --secondary-foreground: 240 10% 8%;
+    --secondary-glow: 190 100% 75%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Magenta Accent */
+    --accent: 320 100% 65%;
+    --accent-foreground: 240 10% 8%;
+    --accent-glow: 320 100% 80%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Blue Variant */
+    --blue: 220 100% 65%;
+    --blue-foreground: 240 10% 8%;
+    --blue-glow: 220 100% 80%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --muted: 240 15% 20%;
+    --muted-foreground: 280 50% 70%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --border: 240 20% 25%;
+    --input: 240 20% 15%;
+    --ring: 280 100% 70%;
+
+    --radius: 1rem;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--blue)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(240 20% 15%));
+
+    /* Neon Glows */
+    --glow-primary: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3);
+    --glow-secondary: 0 0 20px hsl(var(--secondary) / 0.5), 0 0 40px hsl(var(--secondary) / 0.3);
+    --glow-accent: 0 0 20px hsl(var(--accent) / 0.5), 0 0 40px hsl(var(--accent) / 0.3);
+
+    /* Animations */
+    --transition-glow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce-subtle: bounce 2s infinite;
 
     --sidebar-background: 0 0% 98%;
 
@@ -94,12 +120,132 @@ All colors MUST be HSL.
   }
 }
 
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-rajdhani;
+    background: radial-gradient(ellipse at top, hsl(var(--primary) / 0.1), transparent 50%),
+                radial-gradient(ellipse at bottom, hsl(var(--secondary) / 0.1), transparent 50%),
+                hsl(var(--background));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron;
+  }
+}
+
+@layer components {
+  /* Neon Button Variants */
+  .btn-neon {
+    @apply relative overflow-hidden rounded-lg px-6 py-3 font-bold tracking-wider;
+    @apply transition-all duration-300;
+    @apply border-2;
+  }
+
+  .btn-neon-primary {
+    @apply btn-neon bg-primary/20 border-primary text-primary;
+    @apply hover:bg-primary hover:text-primary-foreground;
+    box-shadow: var(--glow-primary);
+  }
+
+  .btn-neon-secondary {
+    @apply btn-neon bg-secondary/20 border-secondary text-secondary;
+    @apply hover:bg-secondary hover:text-secondary-foreground;
+    box-shadow: var(--glow-secondary);
+  }
+
+  .btn-neon-accent {
+    @apply btn-neon bg-accent/20 border-accent text-accent;
+    @apply hover:bg-accent hover:text-accent-foreground;
+    box-shadow: var(--glow-accent);
+  }
+
+  /* Glowing Cards */
+  .card-glow {
+    @apply relative rounded-xl p-6;
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 8px 32px hsl(var(--primary) / 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .card-glow:hover {
+    box-shadow: var(--glow-primary);
+    transform: translateY(-4px);
+  }
+
+  /* Text Gradients */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated Gradient Backgrounds */
+  .bg-gradient-animated {
+    background: var(--gradient-hero);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  /* Cyber Grid Effect */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
+
+@layer utilities {
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes neonPulse {
+  0%, 100% { 
+    box-shadow: var(--glow-primary);
+    filter: brightness(1);
+  }
+  50% { 
+    box-shadow: var(--glow-primary), 0 0 60px hsl(var(--primary) / 0.4);
+    filter: brightness(1.2);
   }
 }
