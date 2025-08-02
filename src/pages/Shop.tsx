@@ -130,8 +130,7 @@ const Shop = () => {
               </p>
               
               <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <Zap className="w-5 h-5 text-accent" />
+                <div className="flex items-center justify-center">
                   <span className="text-2xl font-bold text-accent">
                     {product.price} BEMP
                   </span>
@@ -140,9 +139,8 @@ const Shop = () => {
               
               <button
                 onClick={() => handleBuyNow(product)}
-                className="btn-neon-primary w-full mt-4 flex items-center justify-center space-x-2"
+                className="btn-neon-primary w-full mt-4 flex items-center justify-center"
               >
-                <ShoppingCart className="w-4 h-4" />
                 <span>Buy Now</span>
               </button>
             </div>

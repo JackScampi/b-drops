@@ -80,11 +80,10 @@ const Navigation = () => {
             {/* Wallet Button */}
             <button
               onClick={connectWallet}
-              className={`btn-neon-primary flex items-center space-x-2 ${
+              className={`btn-neon-primary flex items-center justify-center ${
                 isWalletConnected ? "btn-neon-secondary" : ""
               }`}
             >
-              <Wallet className="w-4 h-4" />
               <span>
                 {isWalletConnected ? formatAddress(walletAddress) : "Connect MetaMask"}
               </span>
@@ -119,11 +118,10 @@ const Navigation = () => {
             </Link>
             <button
               onClick={connectWallet}
-              className={`btn-neon-primary w-full flex items-center justify-center space-x-2 ${
+              className={`btn-neon-primary w-full flex items-center justify-center ${
                 isWalletConnected ? "btn-neon-secondary" : ""
               }`}
             >
-              <Wallet className="w-4 h-4" />
               <span>
                 {isWalletConnected ? formatAddress(walletAddress) : "Connect MetaMask"}
               </span>

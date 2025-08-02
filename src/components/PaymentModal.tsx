@@ -222,8 +222,7 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
             {/* Demo Mode Toggle */}
             <div className="mb-4 p-3 bg-accent/10 rounded-lg border border-accent/20">
               <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <PlayCircle className="w-4 h-4 text-accent" />
+                <div className="flex items-center">
                   <span className="text-sm font-medium text-foreground">Demo Mode</span>
                 </div>
                 <button
@@ -250,18 +249,12 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
             <button
               onClick={handlePayment}
               disabled={isProcessing}
-              className="btn-neon-primary w-full flex items-center justify-center space-x-2"
+              className="btn-neon-primary w-full flex items-center justify-center"
             >
               {isProcessing ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Processing...</span>
-                </>
+                <span>Processing...</span>
               ) : (
-                <>
-                  {isDemoMode ? <PlayCircle className="w-4 h-4" /> : <Wallet className="w-4 h-4" />}
-                  <span>{isDemoMode ? "Demo Payment" : "Pay with MetaMask"}</span>
-                </>
+                <span>{isDemoMode ? "Demo Payment" : "Pay with MetaMask"}</span>
               )}
             </button>
           </div>
@@ -272,8 +265,7 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
             </h2>
 
             <div className="mb-6">
-              <div className="flex items-center space-x-3 mb-4">
-                <CreditCard className="w-6 h-6 text-secondary" />
+              <div className="flex items-center justify-center mb-4">
                 <span className="text-secondary font-semibold">Payment Successful!</span>
               </div>
               <p className="text-muted-foreground">
@@ -300,18 +292,12 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
             <button
               onClick={handleEmailSubmit}
               disabled={isProcessing || !email}
-              className="btn-neon-secondary w-full flex items-center justify-center space-x-2"
+              className="btn-neon-secondary w-full flex items-center justify-center"
             >
               {isProcessing ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Sending...</span>
-                </>
+                <span>Sending...</span>
               ) : (
-                <>
-                  <Mail className="w-4 h-4" />
-                  <span>Send Download Link</span>
-                </>
+                <span>Send Download Link</span>
               )}
             </button>
           </div>
@@ -323,7 +309,7 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
 
             <div className="text-center mb-8">
               <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-secondary/20 flex items-center justify-center">
-                <CheckCircle className="w-12 h-12 text-secondary animate-pulse" />
+                <div className="w-12 h-12 bg-secondary rounded-full animate-pulse"></div>
               </div>
               
               <div className="space-y-4">
@@ -344,9 +330,8 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
 
             <button
               onClick={handleContinue}
-              className="btn-neon-primary w-full flex items-center justify-center space-x-2"
+              className="btn-neon-primary w-full flex items-center justify-center"
             >
-              <CheckCircle className="w-4 h-4" />
               <span>Continue</span>
             </button>
           </div>

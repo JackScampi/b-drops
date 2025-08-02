@@ -32,8 +32,7 @@ const Index = () => {
                 <span>Explore Drops</span>
               </Link>
               
-              <button className="btn-neon-secondary text-lg px-8 py-4 flex items-center space-x-3">
-                <Zap className="w-5 h-5" />
+              <button className="btn-neon-secondary text-lg px-8 py-4 flex items-center justify-center">
                 <span>Connect MetaMask</span>
               </button>
             </div>
@@ -108,9 +107,8 @@ const Index = () => {
               </p>
             </div>
 
-            <Link to="/shop" className="btn-neon-accent text-lg px-8 py-4 inline-flex items-center space-x-3">
+            <Link to="/shop" className="btn-neon-accent text-lg px-8 py-4 inline-flex items-center justify-center">
               <span>Start Collecting</span>
-              <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
