@@ -27,7 +27,7 @@ const products = [
   {
     id: 3,
     name: "Space Bempolo",
-    description: "Astronaut gnome exploring the crypto cosmos",
+    description: "Astronaut gnome in crypto cosmos",
     price: 350,
     image: bempoloSpace,
   },
