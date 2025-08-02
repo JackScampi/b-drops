@@ -55,17 +55,18 @@ const ThankYou = () => {
             </div>
           </div>
 
-          <div className="mt-12 p-6 bg-muted/20 rounded-lg border border-border">
-            <h3 className="font-orbitron font-bold text-lg mb-2 text-primary">
-              About Your Purchase
-            </h3>
+        </div>
+      </div>
+      
+      <footer className="bg-muted/10 border-t border-border">
+        <div className="container mx-auto px-6 py-8">
+          <div className="text-center">
             <p className="text-sm text-muted-foreground">
-              Your digital drop is a unique file-based creation by Andrea Bempensante. 
-              No NFTs were minted - this is pure digital art for your collection.
+              © 2024 Bempolo Collection. Digital art by Andrea Bempensante.
             </p>
           </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 };
