@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Wallet, Mail, CreditCard, Loader2 } from "lucide-react";
+import { X, Wallet, Mail, CreditCard, Loader2, PlayCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -21,13 +21,35 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
   const [step, setStep] = useState<"payment" | "email">("payment");
   const [email, setEmail] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isDemoMode, setIsDemoMode] = useState(false);
   const navigate = useNavigate();
 
   // Convert BEMP price to USDT (example rate: 1 BEMP = 0.001 USDT)
   const usdtPrice = (product.price * 0.001).toFixed(3);
   const targetWallet = "0xB0aD6c79E8e232FE64b9C8fF77B5D00e2F76E1C3";
 
+  const handleDemoPayment = async () => {
+    setIsProcessing(true);
+    
+    try {
+      // Simulate payment processing
+      await new Promise(resolve => setTimeout(resolve, 2500));
+      
+      toast.success("Demo payment successful! Please provide your email.");
+      setStep("email");
+    } catch (error) {
+      toast.error("Demo payment failed. Please try again.");
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
   const handlePayment = async () => {
+    if (isDemoMode) {
+      await handleDemoPayment();
+      return;
+    }
+
     if (typeof window.ethereum === "undefined") {
       toast.error("MetaMask not detected. Please install MetaMask.");
       return;
@@ -197,6 +219,34 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
               </div>
             </div>
 
+            {/* Demo Mode Toggle */}
+            <div className="mb-4 p-3 bg-accent/10 rounded-lg border border-accent/20">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <PlayCircle className="w-4 h-4 text-accent" />
+                  <span className="text-sm font-medium text-foreground">Demo Mode</span>
+                </div>
+                <button
+                  onClick={() => setIsDemoMode(!isDemoMode)}
+                  className={`relative w-12 h-6 rounded-full transition-colors ${
+                    isDemoMode ? 'bg-accent' : 'bg-muted'
+                  }`}
+                >
+                  <div
+                    className={`absolute top-0.5 w-5 h-5 bg-background rounded-full transition-transform ${
+                      isDemoMode ? 'translate-x-6' : 'translate-x-0.5'
+                    }`}
+                  />
+                </button>
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                {isDemoMode 
+                  ? "Experience the payment flow without MetaMask" 
+                  : "Use real MetaMask for actual payment"
+                }
+              </p>
+            </div>
+
             <button
               onClick={handlePayment}
               disabled={isProcessing}
@@ -209,8 +259,8 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
                 </>
               ) : (
                 <>
-                  <Wallet className="w-4 h-4" />
-                  <span>Pay with MetaMask</span>
+                  {isDemoMode ? <PlayCircle className="w-4 h-4" /> : <Wallet className="w-4 h-4" />}
+                  <span>{isDemoMode ? "Demo Payment" : "Pay with MetaMask"}</span>
                 </>
               )}
             </button>
