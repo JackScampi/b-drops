@@ -143,7 +143,7 @@ const Index = () => {
             </div>
 
             <div className="mt-8 text-center text-muted-foreground">
-              <p>&copy; 2024 BEMPOLO. Powered by memes, secured by blockchain.</p>
+              <p>© 2025 BEMPOLO. Powered by memes, secured by blockchain.</p>
             </div>
           </div>
         </div>
