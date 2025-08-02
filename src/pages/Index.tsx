@@ -18,9 +18,7 @@ const Index = () => {
               <p className="text-2xl md:text-3xl font-bold text-gradient-secondary mb-4">
                 The Meme Coin That Sends Files
               </p>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Buy exclusive digital drops using USDT. Powered by BEMP.
-              </p>
+              
             </div>
 
             <div className="mb-12">
@@ -102,9 +100,7 @@ const Index = () => {
               <p className="text-xl text-muted-foreground leading-relaxed mb-4">
                 Once upon a time in the gardens of the blockchain,
               </p>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
-                there lived the smallest token with the biggest dreams.
-              </p>
+              <p className="text-xl text-muted-foreground leading-relaxed mb-6">there lived the smallest token with the biggest dreams...</p>
             </div>
 
             <Link to="/shop" className="btn-neon-accent text-lg px-8 py-4 inline-flex items-center justify-center">
