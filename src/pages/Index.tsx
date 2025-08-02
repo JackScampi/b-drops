@@ -80,9 +80,7 @@ const Index = () => {
                 <h3 className="text-xl font-orbitron font-bold text-foreground mb-3">
                   Meme Power
                 </h3>
-                <p className="text-muted-foreground">
-                  Collect unique Bempolo creations from the legendary digital gnome himself.
-                </p>
+                <p className="text-muted-foreground">Collect unique Bempolo creations from the legendary gnome himself.</p>
               </div>
             </div>
           </div>
@@ -98,7 +96,7 @@ const Index = () => {
             </h2>
             
             <div className="card-glow p-8 mb-8">
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">Once upon a time in the digital gardens of the blockchain, there lived the smallest token with the biggest dreams.</p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">Once upon a time in the gardens of the blockchain, there lived the smallest token with the biggest dreams.</p>
               
               
             </div>
