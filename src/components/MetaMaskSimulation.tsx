@@ -184,19 +184,19 @@ export const MetaMaskSimulation: React.FC<MetaMaskSimulationProps> = ({
                   </div>
                 </div>
 
-                <div className="border rounded-lg p-3">
+                <div className="border rounded-lg p-3 text-gray-900">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm text-gray-600">Amount:</span>
-                    <span className="font-semibold">{product.price} USDT</span>
+                    <span className="text-sm text-gray-800">Amount:</span>
+                    <span className="font-semibold text-gray-900">{product.price} USDT</span>
                   </div>
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm text-gray-600">Gas fee:</span>
-                    <span className="text-sm">~0.05 MATIC ($0.04)</span>
+                    <span className="text-sm text-gray-800">Gas fee:</span>
+                    <span className="text-sm text-gray-900">~0.05 MATIC ($0.04)</span>
                   </div>
                   <div className="border-t pt-2 mt-2">
                     <div className="flex justify-between items-center">
-                      <span className="font-semibold">Total:</span>
-                      <span className="font-bold">${(product.price + 0.04).toFixed(2)}</span>
+                      <span className="font-semibold text-gray-900">Total:</span>
+                      <span className="font-bold text-gray-900">${(product.price + 0.04).toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
