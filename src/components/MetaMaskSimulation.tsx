@@ -116,7 +116,7 @@ export const MetaMaskSimulation: React.FC<MetaMaskSimulationProps> = ({
                     A1
                   </div>
                   <div>
-                    <div className="font-medium text-sm">Account 1</div>
+                    <div className="font-medium text-sm text-gray-900">Account 1</div>
                     <div className="text-xs text-gray-500">0x742d...5A0e</div>
                   </div>
                 </div>
