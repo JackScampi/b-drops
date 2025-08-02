@@ -8,6 +8,10 @@ import bempoloSpace from "@/assets/bempolo-space.jpg";
 import bempoloZen from "@/assets/bempolo-zen.jpg";
 import bempoloNeon from "@/assets/bempolo-neon.jpg";
 import bempoloRetro from "@/assets/bempolo-retro.jpg";
+import bempoloQuantum from "@/assets/bempolo-quantum.jpg";
+import bempoloCrystal from "@/assets/bempolo-crystal.jpg";
+import bempoloHolo from "@/assets/bempolo-holo.jpg";
+import bempoloGenesis from "@/assets/bempolo-genesis.jpg";
 
 const products = [
   {
@@ -50,7 +54,7 @@ const products = [
     name: "Quantum Bempolo",
     description: "Gnome existing in multiple dimensions",
     price: 400,
-    image: bempoloWizard,
+    image: bempoloQuantum,
   },
   {
     id: 7,
@@ -64,21 +68,21 @@ const products = [
     name: "Crystal Bempolo",
     description: "Mystical gnome with healing powers",
     price: 300,
-    image: bempoloZen,
+    image: bempoloCrystal,
   },
   {
     id: 9,
     name: "Holo Bempolo",
     description: "Holographic gnome from the future",
     price: 450,
-    image: bempoloSpace,
+    image: bempoloHolo,
   },
   {
     id: 10,
     name: "Genesis Bempolo",
     description: "The original legendary gnome",
     price: 500,
-    image: bempoloCyber,
+    image: bempoloGenesis,
   },
 ];
 
