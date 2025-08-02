@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Wallet, Mail, CreditCard, Loader2, PlayCircle } from "lucide-react";
+import { X, Wallet, Mail, CreditCard, Loader2, PlayCircle, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -18,7 +18,7 @@ interface PaymentModalProps {
 }
 
 const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
-  const [step, setStep] = useState<"payment" | "email">("payment");
+  const [step, setStep] = useState<"payment" | "email" | "confirmation">("payment");
   const [email, setEmail] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [isDemoMode, setIsDemoMode] = useState(false);
@@ -152,18 +152,22 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
 
       if (response.ok) {
         toast.success("Download link sent to your email!");
-        navigate("/thankyou");
+        setStep("confirmation");
       } else {
         throw new Error("Failed to send email");
       }
     } catch (error) {
       console.error("Email sending failed:", error);
       toast.success("Download link sent! (Demo mode)");
-      navigate("/thankyou");
+      setStep("confirmation");
     } finally {
       setIsProcessing(false);
-      onClose();
     }
+  };
+
+  const handleContinue = () => {
+    navigate("/thankyou");
+    onClose();
   };
 
   if (!isOpen) return null;
@@ -265,7 +269,7 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
               )}
             </button>
           </div>
-        ) : (
+        ) : step === "email" ? (
           <div>
             <h2 className="text-3xl font-orbitron font-bold text-gradient-secondary mb-6">
               Get Your Download
@@ -313,6 +317,41 @@ const PaymentModal = ({ isOpen, onClose, product }: PaymentModalProps) => {
                   <span>Send Download Link</span>
                 </>
               )}
+            </button>
+          </div>
+        ) : (
+          <div>
+            <h2 className="text-3xl font-orbitron font-bold text-gradient-primary mb-6 text-center">
+              Email Sent Successfully!
+            </h2>
+
+            <div className="text-center mb-8">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-secondary/20 flex items-center justify-center">
+                <CheckCircle className="w-12 h-12 text-secondary animate-pulse" />
+              </div>
+              
+              <div className="space-y-4">
+                <p className="text-xl font-semibold text-foreground">
+                  Check your inbox!
+                </p>
+                <p className="text-muted-foreground">
+                  Your download link for <strong className="text-foreground">{product.name}</strong> has been sent to:
+                </p>
+                <div className="p-3 bg-secondary/10 rounded-lg border border-secondary/20">
+                  <p className="text-secondary font-semibold break-all">{email}</p>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Don't see it? Check your spam folder or wait a few minutes for delivery.
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={handleContinue}
+              className="btn-neon-primary w-full flex items-center justify-center space-x-2"
+            >
+              <CheckCircle className="w-4 h-4" />
+              <span>Continue</span>
             </button>
           </div>
         )}
